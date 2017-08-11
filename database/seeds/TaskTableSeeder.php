@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
-class DatabaseSeeder extends Seeder
+use App\Task;
+class TaskTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(TaskTableSeeder::class);
+        //
+        factory(Task::class, 5)->create();
     }
 }
