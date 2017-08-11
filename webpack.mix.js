@@ -11,5 +11,10 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+// Laravelmix: Sistema que instalamos en laravel para definir 
+// el paso a paso de compilación de webpack utilizando un método de encadenamiento
+mix.scripts([
+	'resources/assets/js/vue.js',
+	'resources/assets/js/axios.js',
+	'resources/assets/js/app.js'
+	], 'public/js/app.js');
