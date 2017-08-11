@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('dashboard');
 });
+
+
+// Ruta al controlador excepto show que no vamos a utilizar
+Route::resource('tasks','TaskController', ['except' => 'show']);
