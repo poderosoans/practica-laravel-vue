@@ -7,7 +7,7 @@
 	</div>
 	<div class="row">
 		<div class="col-sm-7">
-			<a href="#" class="btn btn-primary pull-right">Nueva tarea</a>
+			<a href="#" class="btn btn-primary pull-right" data-toggle="modal" data-target="#create">Nueva tarea</a>
 
 			<table class="table table-striped table-hover">
 				<thead>
@@ -32,6 +32,8 @@
 					</tr>
 				</tbody>
 			</table>
+
+			@include('create')
 		</div>
 		<div class="col-sm-5">
 			@{{ $data }}
