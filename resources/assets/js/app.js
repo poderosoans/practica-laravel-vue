@@ -15,6 +15,9 @@ new Vue({
  				});
  			},
  			deleteKeep: function(keep) {
+ 				if(!confirm('¿Está seguro que desea eliminar el registro?')){
+ 					return false;
+ 				}
  				let url = 'tasks/' + keep.id;
  				axios.delete(url).then(response => {  // Eliminamos
  					this.getKeeps(); // Listamos
