@@ -7,6 +7,7 @@ new Vue({
  		data: { // LLave que encapsula los datos 
  			keeps: [],
  			newKeep: '',
+ 			fillKeep: {'id': '', 'keep': ''},
  			errors: []
  		},
  		methods: {
@@ -15,6 +16,14 @@ new Vue({
  				axios.get(urlKeeps).then(response => {
  					this.keeps = response.data
  				});
+ 			},
+ 			editKeep: function(keep) {
+ 				this.fillKeep.id = keep.id;
+ 				this.fillKeep.keep = keep.keep;
+ 				$('#edit').modal('show');
+ 			},
+ 			updateKeep: function(id) {
+ 				alert('hola');
  			},
  			deleteKeep: function(keep) {
  				if(!confirm('¿Está seguro que desea eliminar el registro?')){
