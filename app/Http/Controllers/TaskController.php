@@ -15,20 +15,11 @@ class TaskController extends Controller
     public function index()
     {
         // Tremos todos los registros
-        $tasks = Task::get();
+        $tasks = Task::orderBy('id','DESC')->get();
 
         return $tasks;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        // Formulario
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -39,21 +30,15 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         // Lógica para guardar datos
+        $this->validate($request, [
+                'keep' => 'required'
+            ]);
+        // Trae pero solo guarda lo que se tiene registrado en el modelo.
+        Task::create($request->all());
+
+        return;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        // Muestra un formulario con datos
-        $task = Task::findOrFail($id);
-        // Formulario
-        return $task;
-    }
 
     /**
      * Update the specified resource in storage.

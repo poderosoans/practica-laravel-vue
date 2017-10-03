@@ -17,4 +17,4 @@ Route::get('/', function () {
 
 
 // Ruta al controlador excepto al método show, que no vamos a utilizar
-Route::resource('tasks','TaskController', ['except' => 'show']);
+Route::resource('tasks','TaskController', ['except' => 'show', 'created', 'edit']);
